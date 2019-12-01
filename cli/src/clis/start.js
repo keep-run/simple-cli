@@ -1,1 +1,1 @@
-console.log('start')
+export default () => { console.log('start') }
