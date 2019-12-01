@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-console.log(1111)
+require('./src/index')
