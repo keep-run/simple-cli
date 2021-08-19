@@ -1,27 +1,42 @@
 "use strict";
 
-var _optimist = _interopRequireDefault(require("optimist"));
+var _commander = require("commander");
 
-var _fs = _interopRequireDefault(require("fs"));
+// import optimist from 'optimist'
+// import fs from 'fs'
+// import path from 'path'
+// const { argv } = optimist
+// const commands = argv._
+// const clis = fs.readdirSync(path.resolve(__dirname, 'clis')).map(item => item.replace('.js', ''))
+// const cmd = clis.indexOf(commands[0]) > -1 ? commands[0] : ''
+// if (cmd) {
+//     const command = require(`./clis/${cmd}`).default
+//     argv.cwd = process.cwd()
+//     command(argv)
+// } else {
+//     console.log('not found')
+// }
+var pkg = require('../package.json'); // 定义 -v/ --version 指令 
 
-var _path = _interopRequireDefault(require("path"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+_commander.program.version("\u5F53\u524D\u7248\u672C: ".concat(pkg.version), '-v, --version', 'get current version'); // 自定义指令 start
 
-var argv = _optimist["default"].argv;
-var commands = argv._;
 
-var clis = _fs["default"].readdirSync(_path["default"].resolve(__dirname, 'clis')).map(function (item) {
-  return item.replace('.js', '');
+_commander.program.command('start').description('start a program').action(function () {
+  //todo
+  console.log('command start ');
+}); // 自定义指令 build
+
+
+_commander.program.command('build').description('build program').action(function () {
+  //todo
+  console.log('command build');
+}); // 自定义指令 publish
+
+
+_commander.program.command('publish').description('publish program').action(function () {
+  //todo
+  console.log('command publish');
 });
 
-var cmd = clis.indexOf(commands[0]) > -1 ? commands[0] : '';
-
-if (cmd) {
-  var command = require("./clis/".concat(cmd))["default"];
-
-  argv.cwd = process.cwd();
-  command(argv);
-} else {
-  console.log('not found');
-}
+_commander.program.parse(process.argv);
