@@ -17,12 +17,14 @@ var config = {
   port: 8000,
   entry: './index.js',
   cwd: process.cwd()
-}; // const userPkgPath = `${cwd}/package.json`   //使用者目录下的package.json文件路径
-// if (fs.existsSync(userPkgPath)) {
-//     let userConfig = require(userPkgPath).simple_cli || {}
-//     config = Object.assign(config, userConfig)
-// }
-// 定义 - v / --version 指令
+};
+var userPkgPath = "".concat(cwd, "/package.json"); //使用者目录下的package.json文件路径
+
+if (fs.existsSync(userPkgPath)) {
+  var userConfig = require(userPkgPath).simple_cli || {};
+  config = Object.assign(config, userConfig);
+} // 定义 - v / --version 指令
+
 
 _commander.program.version("\u5F53\u524D\u7248\u672C: ".concat(pkg.version), '-v, --version', 'get current version'); // 自定义指令 start
 

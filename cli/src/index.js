@@ -14,12 +14,12 @@ let config = {
     cwd: process.cwd()
 }
 
-// const userPkgPath = `${cwd}/package.json`   //使用者目录下的package.json文件路径
+const userPkgPath = `${cwd}/package.json`   //使用者目录下的package.json文件路径
 
-// if (fs.existsSync(userPkgPath)) {
-//     let userConfig = require(userPkgPath).simple_cli || {}
-//     config = Object.assign(config, userConfig)
-// }
+if (fs.existsSync(userPkgPath)) {
+    let userConfig = require(userPkgPath).simple_cli || {}
+    config = Object.assign(config, userConfig)
+}
 
 // 定义 - v / --version 指令
 program.version(`当前版本: ${pkg.version}`, '-v, --version', 'get current version')
