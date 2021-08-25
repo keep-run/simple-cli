@@ -5,12 +5,11 @@ export default (props) => {
   const {
     entry = './index.js'
   } = props
-  console.log('-----wzc---path--', path.join(process.cwd(), 'dist'))
   return {
     entry,
     output: {
       path: path.join(process.cwd(), 'dist'),   // 输出路径
-      filename: 'bundle.[hash].js'
+      filename: 'bundle.[contenthash].js'
     },
     stats: "errors-only",
     resolve: {

@@ -2,29 +2,25 @@ import Webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
 import path from 'path'
 import getDevConfig from '../webpack/config.dev.js'
-export default (pkg) => {
-  const { port = 8000 } = pkg
+export default (config) => {
+  const { port = 8000, cwd } = config
   const host = '0.0.0.0'
-  const webpackConfig = getDevConfig(pkg)
+  const webpackConfig = getDevConfig(config)
   const devServer = {
     port,
     host,
     open: true,
     compress: true,
-    // contentBase: path.join(__dirname, 'dist'),
-    // stats: {
-    //   assets: true, // 输出打包的资源信息
-    //   modules: false,
-    //   version: true,
-    //   providedExports: true,
-    //   children: false,
-    // },
+
+    static: {
+      directory: path.join(cwd, 'dist'),
+    }
   }
 
-  // const complier = Webpack(webpackConfig)
-  // const server = new WebpackDevServer(complier, devServer)
+  const complier = Webpack(webpackConfig)
+  const server = new WebpackDevServer(complier, devServer)
 
-  // server.listen(port, host, () => {
-  //   console.log(`start server on http://localhost:${port}`)
-  // })
+  server.listen(port, host, () => {
+    console.log(`start server on http://localhost:${port}`)
+  })
 }

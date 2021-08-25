@@ -30,8 +30,7 @@ program
     .command('start')
     .description('start a program')
     .action(() => {
-        //todo
-        // start(config)
+        start(config)
         console.log('command start ')
     })
 
