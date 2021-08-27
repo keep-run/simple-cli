@@ -2,7 +2,7 @@
 import { program } from 'commander'
 import start from './commanders/start.js'
 import build from './commanders/build'
-
+import init from './commanders/init'
 
 const fs = require('fs')
 const pkg = require('../package.json')
@@ -24,6 +24,15 @@ if (fs.existsSync(userPkgPath)) {
 // 定义 - v / --version 指令
 program.version(`当前版本: ${pkg.version}`, '-v, --version', 'get current version')
 
+// 自定义指令 init
+program
+    .command('init')
+    .description('init a program')
+    .option('-r, --react', 'init a react program ')
+    .action((args) => {
+        init({ ...config, ...args })
+    })
+
 
 // 自定义指令 start
 program
@@ -31,7 +40,6 @@ program
     .description('start a program')
     .action(() => {
         start(config)
-        console.log('command start ')
     })
 
 // 自定义指令 build
