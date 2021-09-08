@@ -13,7 +13,7 @@ export default (props) => {
     },
     stats: "errors-only",
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue', '.css'],
     },
     module: {
       rules: [...jsLoader()]
