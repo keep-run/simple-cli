@@ -9,7 +9,7 @@ const pkg = require('../package.json')
 
 const cwd = process.cwd()
 let config = {
-    port: 8000,
+    port: 9001,   //不要默认值为8000  端口可能被占用
     entry: './index.js',
     cwd: process.cwd()
 }
