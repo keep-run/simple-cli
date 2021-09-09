@@ -8,7 +8,7 @@
   },
   "creator": "",
   "license": "ISC",
-  "simple-cli": {
+  "simple_cli": {
     "port": 9000,
     "entry": "./index"
   },
