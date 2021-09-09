@@ -22,9 +22,24 @@ export default () => {
       }
     },
     {
+      test: /\.(png|jpe?g|gif)$/i,
+      exclude: /node_modules/,
+      use: [require.resolve('file-loader')],  //支持图片资源
+    },
+    {
       test: /\.css$/,
       exclude: /node_modules/,
       use: [MiniCssExtractPlugin.loader, require.resolve('css-loader')],
+    },
+    {
+      test: /\.styl$/,
+      exclude: /node_modules/,
+      use: [MiniCssExtractPlugin.loader, require.resolve('css-loader'), require.resolve('stylus-loader')],   // 支持stylus
+    },
+    {
+      test: /\.less$/,
+      exclude: /node_modules/,
+      use: [MiniCssExtractPlugin.loader, require.resolve('css-loader'), require.resolve('less-loader')],   // 支持stylus
     }
   ]
 }

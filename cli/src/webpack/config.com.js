@@ -11,6 +11,7 @@ export default (props) => {
       path: path.join(process.cwd(), 'dist'),   // 输出路径
       filename: 'bundle.[contenthash].js'
     },
+    target: 'web',
     stats: "errors-only",
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue', '.css'],
