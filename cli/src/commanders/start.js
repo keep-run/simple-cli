@@ -18,9 +18,11 @@ export default (config) => {
   }
 
   const complier = Webpack(webpackConfig)
-  const server = new WebpackDevServer(complier, devServer)
+  const server = new WebpackDevServer(devServer, complier)
 
-  server.listen(port, host, () => {
-    console.log(`start server on http://localhost:${port}`)
+  server.startCallback((err) => {
+    if (err) {
+      console.log(`error : `, err)
+    }
   })
 }
