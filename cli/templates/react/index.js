@@ -5,5 +5,5 @@ render(
   <div className="container">
     <div>this is a react app</div>
   </div>,
-  document.body
+  document.getElementById('root') || document.body
 )
