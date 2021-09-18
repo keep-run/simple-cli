@@ -32,5 +32,5 @@ render(
     // src='https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455_960_720.jpg'
     />
   </div>,
-  document.body
+  document.getElementById('root') || document.body
 )
