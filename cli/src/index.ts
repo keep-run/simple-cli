@@ -3,15 +3,21 @@ import { program } from 'commander'
 import start from './commanders/start.js'
 import build from './commanders/build'
 import init from './commanders/init'
-
 const fs = require('fs')
 const pkg = require('../package.json')
-
 const cwd = process.cwd()
-let config = {
+
+export interface Iconfig {
+    entry: string,
+    port: number,
+    cwd: string,
+    mock?: boolean,
+}
+
+let config: Iconfig = {
     port: 9001,   //不要默认值为8000  端口可能被占用
     entry: './index.js',
-    cwd: process.cwd()
+    cwd: process.cwd(),
 }
 
 const userPkgPath = `${cwd}/package.json`   //使用者目录下的package.json文件路径

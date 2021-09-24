@@ -1,0 +1,15 @@
+// 配置文档：https://www.typescriptlang.org/tsconfig/#types
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "allowJs": true, //允许js
+    "declaration": true, // 从js文件或者ts文件生成 .d.ts
+    "emitDeclarationOnly": true, //只生成.d.ts 不生成 .js文件\
+    "outDir": "lib",
+    "baseUrl": "./lib",
+    "declarationDir": "./lib/types" //类型文件放到lib/types文件夹下
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
