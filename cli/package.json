@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsc  && babel src --extensions '.ts,.js' --watch --out-dir lib",
+    "dev": "npx tsc  && babel src --extensions '.ts,.js' --watch --out-dir lib"
   },
   "bin": {
     "simple-cli": "index.js"

@@ -1,7 +1,9 @@
+import { Configuration } from 'webpack'
 import jsLoader from '../babel/jsLoader'
 import plugin from '../babel/plugin'
+import { UConfig } from '../types/index'
 const path = require('path')
-export default (config) => {
+export default (config: UConfig): Configuration => {
   const {
     entry = './index.js',
     mode = 'development'

@@ -2,6 +2,7 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
+    "esModuleInterop": true,
     "allowJs": true, //允许js
     "declaration": true, // 从js文件或者ts文件生成 .d.ts
     "emitDeclarationOnly": true, //只生成.d.ts 不生成 .js文件\

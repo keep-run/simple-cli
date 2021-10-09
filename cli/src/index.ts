@@ -3,18 +3,12 @@ import { program } from 'commander'
 import start from './commanders/start.js'
 import build from './commanders/build'
 import init from './commanders/init'
+import { IConfig } from './types/index'
 const fs = require('fs')
 const pkg = require('../package.json')
 const cwd = process.cwd()
 
-export interface Iconfig {
-    entry: string,
-    port: number,
-    cwd: string,
-    mock?: boolean,
-}
-
-let config: Iconfig = {
+let config: IConfig = {
     port: 9001,   //不要默认值为8000  端口可能被占用
     entry: './index.js',
     cwd: process.cwd(),
