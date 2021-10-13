@@ -8,7 +8,8 @@ export interface IConfig {
   mode?: "development" | "production" | "none"
 }
 export interface ArgsConfig {
-  react?: boolean
+  react?: boolean,
+  typeScript?: boolean
 }
 
 export type UConfig = ArgsConfig & IConfig

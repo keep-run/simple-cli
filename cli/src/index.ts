@@ -29,6 +29,7 @@ program
     .command('init')
     .description('init a program')
     .option('-r, --react', 'init a react program ')
+    .option('-ts, --typeScript', 'init a typeScript program ')
     .action((args) => {
         init({ ...config, ...args })
     })

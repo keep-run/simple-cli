@@ -1,0 +1,23 @@
+{
+  "name": "iron-block",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "simple-cli start",
+    "build": "simple-cli build"
+  },
+  "creator": "",
+  "license": "ISC",
+  "simple_cli": {
+    "port": 9000,
+    "entry": "./index"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.29",
+    "@types/react-dom": "^17.0.9"
+  }
+}
