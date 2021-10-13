@@ -1,11 +1,12 @@
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-
+import
+import { UConfig } from '../types/index'
 // require.resolve 找到当前物理目录下的对应模块的绝对地址， 返回的是一个字符串
 // require返回的是对应木块的导出对象
 // MiniCssExtractPlugin.loader 对应的就是loader的绝对路径字符串
 
-export default () => {
+export default (config: UConfig) => {
   return [
     // babel-loader转义js  https://webpack.docschina.org/loaders/babel-loader/#root
     {
@@ -20,6 +21,26 @@ export default () => {
           ]
         }
       }
+    },
+    {
+      test: /ts|tsx$/,       //处理js or jsx
+      exclude: /(node_modules)/,
+      use: [{
+        loader: require.resolve('babel-loader'),     // require.resolve很重要,在当前项目的node_modules中寻找对应的模块
+        options: {
+          presets: [
+            require.resolve('@babel/preset-env'),
+            require.resolve('@babel/preset-react')     // 支持react
+          ]
+        }
+      },
+      {
+        loader: require.resolve('ts-loader'),
+        options: {
+          context: config.cwd,    // 指定ts配置文件目录为context目录下的tsconfig.json
+          // configFile:  //有context时，configFile指定tsconfig.json目录
+        }
+      }]
     },
     {
       test: /\.(png|jpe?g|gif)$/i,

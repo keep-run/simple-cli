@@ -21,7 +21,7 @@ export default (config: UConfig): Configuration => {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue', '.css'],
     },
     module: {
-      rules: [...jsLoader()]
+      rules: [...jsLoader(config)]
     },
     plugins: [...plugin(config)]
   }
